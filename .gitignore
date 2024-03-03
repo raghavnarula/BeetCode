@@ -1,1 +1,3 @@
-leetcode-be/config.env
+beetcode-be/config.env
+beetcode-be/node_modules
+beetcode-fe/node_modules
