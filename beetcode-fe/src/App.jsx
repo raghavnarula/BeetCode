@@ -1,10 +1,11 @@
-import { useState } from 'react'
-
+import Navbar from '../src/components/Navbar'
+import Login from './components/Login'
 function App() {
 
   return (
     <>
-      Home Page
+      <Navbar/>
+      <Login/>
     </>
   )
 }

@@ -1,15 +1,16 @@
 import axios from 'axios'
+import { useEffect } from 'react';
+import { DataSet, Network } from "vis-network/standalone";
+import Graph from '../components/Graph';
 
 const Profile = () => {
-  async function getCharacters() {
-    // const response = await axios.get('http://127.0.0.1:9001/api/v1/users');
-    const response = await axios.get('https://64460e44ee791e1e29f5be26.mockapi.io/api/v1/name/testing')
-    console.log(response.data);
-  }
-  getCharacters();
+
+  
   return (
     <>
-    Profile Page
+    <div id="mynetwork">
+      <Graph />
+    </div>
     </>
   )
 }
