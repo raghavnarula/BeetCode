@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form"
-import homePage from '../public/assets/algo.svg'
 import Graph from "./Graph"
 const Login = () => {
 
@@ -9,7 +8,7 @@ const Login = () => {
     watch,
     formState: { errors },
   } = useForm()
-  
+
   const onSubmit = (data) => console.log(data)
 
   console.log(watch("example")) // watch input value by passing the name of it

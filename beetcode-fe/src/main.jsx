@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import Profile from './pages/Profile.jsx'
+import Problems from './pages/Problems.jsx'
+import Daily from "./pages/Daily.jsx"
 import './index.css'
 
 import {
@@ -17,6 +19,14 @@ const router = createBrowserRouter([
   {
     path:"/profile",
     element:<Profile/>
+  },
+  {
+    path:"/problems",
+    element:<Problems/>
+  },
+  {
+    path:"/daily-challenge",
+    element:<Daily/>
   }
 ]);
 
