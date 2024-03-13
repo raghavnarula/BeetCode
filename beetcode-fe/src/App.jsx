@@ -1,11 +1,11 @@
 import Navbar from '../src/components/Navbar'
-import Login from './components/Login'
+import LoginPage from "./pages/LoginPage"
 function App() {
 
   return (
     <>
       <Navbar/>
-      <Login/>
+      <LoginPage/>
     </>
   )
 }

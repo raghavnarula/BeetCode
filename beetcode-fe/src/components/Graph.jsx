@@ -6,9 +6,9 @@ function Graph() {
     function draw() {
       // create some nodes with initial positions
       const nodes = new DataSet([
-        { id: 0, label: "", group: 1, x: 100, y: 100 },
-        { id: 1, label: "", group: 3, x: 200, y: 200 },
-        { id: 2, label: "", group: 1, x: 300, y: 300 },
+        { id: 0, label: "", group: 1},
+        { id: 1, label: "", group: 3},
+        { id: 2, label: "", group: 1},
         { id: 4, label: "", group: 2 },
         { id: 5, label: "", group: 3 },
         { id: 6, label: "", group: 1 },
@@ -32,7 +32,7 @@ function Graph() {
       const edges = new DataSet([
         { from: 1, to: 20 },
         { from: 2, to: 0 },
-        { from: 3, to: 1 },
+        { from: 3, to: 15 },
         { from: 3, to: 2 },
         { from: 4, to: 0 },
         { from: 5, to: 0 },
@@ -91,11 +91,27 @@ function Graph() {
             // Adjust as needed to match the container size
             radius: 1,
           },
-          wind: { x: 1.1, y: 3.2 }
+          wind: { x: 1.1, y: -0.2 }
         },
       };
-      
+      var afterzoomlimit = { //here we are setting the zoom limit to move to 
+        scale: 0.49,
+      }
+      var zoominLimit = {
+        scale:0.50,
+      }
+
       const network = new Network(container, data, options);
+      network.on("zoom",function(){ //while zooming 
+        if(network.getScale() <= 0.49 )//the limit you want to stop at
+        {
+            network.moveTo(afterzoomlimit); //set this limit so it stops zooming out here
+        }
+        if (network.getScale() >=0.50){
+          network.moveTo(zoominLimit)
+        }
+
+        });
       
       // Start the animation
       network.startSimulation();

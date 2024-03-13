@@ -13,5 +13,6 @@ Router.get('/',home.homePage);
 Router.get(`/api/${process.env.version}/home`,controller.homeAPI);
 Router.get(`/api/${process.env.version}/users`,controller.usersAPI)
 Router.get(`/api/v2/users`,controller.usersAPI)
+Router.post(`/api/${process.env.version}/login`,controller.login)
 
 module.exports = Router
