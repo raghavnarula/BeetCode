@@ -18,38 +18,33 @@ exports.usersAPI = (req,res)=>{
 exports.login = (req,res)=>{
     const request_data = req.body
     console.log(request_data)
-    res.send('Post Request Received')
 
-    if (request_data["type"] == "signup"){
-        console.log("raghav")
+    const user = new User(request_data);
+
+    if (request_data["type"] === "signup") {
+        user.save()
+            .then(savedUser => {
+                console.log('User added successfully:', savedUser);
+                res.json({'message':'ok'})
+            })
+            .catch(err => {
+                res.json({'message':'Internal Server Error'})
+            });
     }
 
-    // User.findOne({ username: request_data["username"] })
-    // .then(user => {
-    //     if (user) {
-    //     console.log('User found:', user);
-    //     } else {
-    //     console.log('User not found');
-    //     }
-    // })
-    // .catch(err => {
-    //     console.error('Error finding user:', err);
-    // });
 
-    // // Create a new user instance
-    // console.log("here")
-    // const newUser = new User({
-    //     username: "john_doe",
-    //     password: "password123",
-    // });
-    
-    // // Save the user to the database
-    // newUser.save()
-    //     .then(user => {
-    //     console.log('User added successfully:', user);
-    //     })
-    //     .catch(err => {
-    //     console.error('Error adding user:', err);
-    //     });
-
+    else{
+        User.findOne({ username: request_data["username"] })
+        .then(user => {
+            if (user) {
+            res.json({'message':'ok'}) 
+            } 
+            else {
+            res.json({'message':'not found'})
+            }
+        })
+        .catch(err => {
+            console.error('Error finding user:', err);
+        });
+    }
 }

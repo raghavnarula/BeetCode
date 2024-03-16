@@ -52,7 +52,7 @@ const Signup = ({ text, signUp, setsignUp }) => {
                         <span className="">
                             <button onClick={changeState} className=" text-white mt-1 mr-10 border-2 px-2 border-white border-solid rounded-2xl"><small>Login</small></button>
                         </span>
-                        <input type="submit" className="mt-1 bg-green-600 p-1 px-2 rounded-md"/>
+                        <button type="submit" className="mt-1 bg-green-600 p-1 px-2 rounded-md">SignUp</button>
                     </div>
                 </div>
 

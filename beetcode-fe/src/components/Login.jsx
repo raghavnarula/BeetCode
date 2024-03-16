@@ -1,20 +1,28 @@
 import { useForm } from "react-hook-form"
 import axios from "axios"
+import { useNavigate } from 'react-router-dom';
 
-const Login = ({ text, signUp, setsignUp }) => {
+const Login = ({ text, signUp, setsignUp}) => {
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm()
     
+    const navigate = useNavigate();
+
     const onSubmit = (data) => {
         axios.post(`${import.meta.env.VITE_BACKEND}/api/v1/login`, data)
-        .then(response => {console.log(response.data)})
+        .then(response => {
+            if (response.data["message"] =="ok"){
+                navigate('/profile')
+            }
+        })
         .catch(error => {
             console.error('Error:', error);
         });
     }
+
 
     const changeState = () => {
         setsignUp(false);
@@ -45,7 +53,7 @@ const Login = ({ text, signUp, setsignUp }) => {
                         <span className="col-span-2">
                             <button onClick={changeState} className=" text-white mr-10 mt-1  border-2 px-2 border-white border-solid rounded-2xl"><small>New User?</small></button>
                         </span>
-                        <input type="submit" className="mt-1 bg-green-600 p-1 px-2 rounded-md"/>
+                        <button type="submit" className="mt-1 bg-green-600 p-1 px-2 rounded-md">Login</button>
                     </div>
                 </div>
             </form>
