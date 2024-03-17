@@ -1,7 +1,7 @@
 // All API's are present here...
 // They can also be called handlers 
 // Are the functions executed when the routes are matched..
-
+const jwt = require('jsonwebtoken');
 const User = require('../../model/User');
 
 exports.homeAPI = (req,res)=>{
@@ -37,7 +37,9 @@ exports.login = (req,res)=>{
         User.findOne({ username: request_data["username"] })
         .then(user => {
             if (user) {
-            res.json({'message':'ok'}) 
+            var token = jwt.sign(request_data, 'raghav',{ expiresIn: '10min' })
+            res.json({'token':token,'message':'ok',})
+            // res.json({'message':'ok'}) 
             } 
             else {
             res.json({'message':'not found'})

@@ -15,7 +15,9 @@ const Login = ({ text, signUp, setsignUp}) => {
         axios.post(`${import.meta.env.VITE_BACKEND}/api/v1/login`, data)
         .then(response => {
             if (response.data["message"] =="ok"){
-                navigate('/profile')
+                console.log(response.data["token"])
+                localStorage.setItem('token',response.data["token"]);
+                navigate('/problems')
             }
         })
         .catch(error => {
@@ -23,10 +25,28 @@ const Login = ({ text, signUp, setsignUp}) => {
         });
     }
 
-
     const changeState = () => {
         setsignUp(false);
       };
+
+      const isAuthenticated = () => {
+        const token = localStorage.getItem('token');
+        return token !== null; // Return true if token is present, false otherwise
+      }
+      
+      // Function to handle redirection based on authentication status
+      const handleRedirect=() => {
+        if (isAuthenticated()) {
+          // User is authenticated, redirect to a different page
+          window.location.href = '/problems'; // Example: Redirect to dashboard page
+        } else {
+          // User is not authenticated, continue normal flow
+          // Maybe show login form or homepage content
+        }
+    }
+
+    handleRedirect()
+      
 
     return (
         <div className="pb-10 ml-[15%] mt-[20%] px-10 pt-10 w-full rounded-3xl shadow-2xl shadow-[#F28705]">
