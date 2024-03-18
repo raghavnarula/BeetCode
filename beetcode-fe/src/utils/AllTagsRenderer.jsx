@@ -1,20 +1,22 @@
-import React from 'react';
 
-const AllTags = (props) => {  
+const AllTags = (props) => {
+    // Helper function to capitalize the first letter of a string
+    const capitalizeFirstLetter = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    };
+
     // Split the string into an array of individual tags
-    let tagsArray = []
-    if (props.value!=undefined){
+    let tagsArray = [];
+    if (props.value !== undefined) {
         tagsArray = props.value.split(',');
     }
-    tagsArray.forEach((tag) => {
-        console.log(tag);
-      });
-      return (
-        <>  
+    
+    return (
+        <>
             <div className="">
                 {tagsArray.map((tag, index) => (
-                    <button key={index} className="mx-1 bg-red-500 rounded-xl px-1 py-0 text-sm">
-                        {tag.trim()}
+                    <button key={index} className="mx-1 bg-[#F2EBBF] text-black rounded-2xl px-2 py-0 text-xs">
+                        {capitalizeFirstLetter(tag.trim())}
                     </button>
                 ))}
             </div>

@@ -4,8 +4,8 @@
     --ag-header-foreground-color: rgb(204, 245, 172);
     --ag-header-background-color: rgb(209, 64, 129,0);
     --ag-odd-row-background-color: rgb(1, 0, 0, 0.03);
-    --ag-header-column-resize-handle-color: rgb(126, 46, 132,0);
-    --ag-row-border-style: none;
+    --ag-header-column-resize-handle-color: rgb(126, 46, 132,0.5);
+    /* --ag-row-border-style: none; */
 }
 
 .ag-root ::-webkit-scrollbar {

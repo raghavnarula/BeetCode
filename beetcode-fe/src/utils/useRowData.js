@@ -14,27 +14,23 @@ const getRandomString = (options) => {
 };
 
 // Array of possible makes, models, tags, and months
-const makes = ['Tesla', 'Ford', 'Toyota', 'Mercedes', 'Fiat', 'Nissan'];
-const models = ['Model Y', 'F-Series', 'Corolla', 'EQA', '500', 'Juke'];
-const tags = ['array', 'heap', 'stack', 'linked list', 'queue'];
-const months = ['January', 'February', 'March', 'April', 'May', 'June'];
+const statusOptions = ["1", "0","2"];
+const problemOptions = ['alsdkjflkajsdfjasdkfjhalskdhflkjasdhlfkjhaslkdjfhlajkhdsflkjahsdkfjhaldkjhflkajshdflkjhasldjfhlkashdflfjhaslkdfhlashdflkhasdlf', 'F-Series', 'Corolla', 'EQA', '500', 'Juke'];
+const difficultyOptions = ['Easy',"Medium","Hard"];
+const tagsOptions = ['array', 'heap', 'stack', 'linked list', 'queue'];
 
 // Function to generate random data object
 const generateRandomData = () => {
-  const make = getRandomString(makes);
-  const model = getRandomString(models);
-  const price = getRandomInt(10000, 100000);
-  const electric = getRandomBoolean();
-  const tagsString = getRandomString(tags) + ',' + getRandomString(tags);
-  const month = getRandomString(months);
+  const status = getRandomString(statusOptions);
+  const problem = getRandomString(problemOptions);
+  const difficulty = getRandomString(difficultyOptions);
+  const tagsString = getRandomString(tagsOptions) + ',' + getRandomString(tagsOptions) + ',' + getRandomString(tagsOptions) + ',' + getRandomString(tagsOptions)  ;
 
   return {
-    make,
-    model,
-    price,
-    electric,
+    status,
+    problem,
+    difficulty,
     tags: tagsString,
-    month,
   };
 };
 
@@ -44,9 +40,9 @@ const generateRandomDataArray = (count) => {
   for (let i = 0; i < count; i++) {
     dataArray.push(generateRandomData());
   }
+  console.log(dataArray)
   return dataArray;
 };
 
 // Generate an array of random data objects with a count of 10
 export default generateRandomDataArray(50);
-

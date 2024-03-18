@@ -1,50 +1,33 @@
 import AllTags from "./AllTagsRenderer";
-
+import Difficulty from "./AllDifficulty";
+import Status from "./Status"
 const Cols = () => {
     return [
     {
-      field: 'make',
-      checkboxSelection: false,
-      editable: false,
-      cellEditor: 'agSelectCellEditor',
-      cellEditorParams: {
-        values: [
-          'Tesla',
-          'Ford',
-          'Toyota',
-          'Mercedes',
-          'Fiat',
-          'Nissan',
-          'Vauxhall',
-          'Volvo',
-          'Jaguar',
-        ],
-      },
+      field: 'status',
+      minWidth: 50,
+      maxWidth: 75,
+      cellRenderer:Status,
+
     },
-    { field: 'model' },
-    { field: 'price', filter: 'agNumberColumnFilter' },
-    {field:'tags',cellRenderer:AllTags},
+    { 
+      field: 'problem' 
+    },
+    { 
+      field: 'difficulty',
+      width:70,
+      minWidth: 50,
+      maxwidth:80,
+      cellRenderer:Difficulty,
+    },
     {
-      field: 'month',
-      comparator: (valueA, valueB) => {
-        const months = [
-          'January',
-          'February',
-          'March',
-          'April',
-          'May',
-          'June',
-          'July',
-          'August',
-          'September',
-          'October',
-          'November',
-          'December',
-        ];
-        const idxA = months.indexOf(valueA);
-        const idxB = months.indexOf(valueB);
-        return idxA - idxB;
-      },
+      field:'tags',
+      cellRenderer:AllTags,
+      width:100,
+      minWidth:80,
+      maxWidth:250,
+      wrapText: true,
+      autoHeight: true,
     },
   ]
 }
