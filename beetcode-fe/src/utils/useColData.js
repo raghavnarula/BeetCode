@@ -11,7 +11,21 @@ const Cols = () => {
 
     },
     { 
-      field: 'problem' 
+      field: 'problem',
+      minWidth:50,
+      maxWidth:1000,
+    },
+    
+    {
+      field:'tags',
+      cellRenderer:AllTags,
+      width:50,
+      minWidth:50,
+      maxWidth:250,
+      wrapText: true,
+      autoHeight: true,
+      // hide:true
+      floatingFilter: true
     },
     { 
       field: 'difficulty',
@@ -19,15 +33,6 @@ const Cols = () => {
       minWidth: 50,
       maxwidth:80,
       cellRenderer:Difficulty,
-    },
-    {
-      field:'tags',
-      cellRenderer:AllTags,
-      width:100,
-      minWidth:80,
-      maxWidth:250,
-      wrapText: true,
-      autoHeight: true,
     },
   ]
 }

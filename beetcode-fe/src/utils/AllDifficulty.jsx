@@ -4,8 +4,8 @@ const Difficulty = (props) => {
     console.log(props.value)
     return (
         <>
-        { props.value == "Easy" ? <span className="text-green-600">Easy</span> 
-        : props.value == "Medium" ? <span className="text-amber-400">Medium</span> 
+        { props.value == "0" ? <span className="text-green-600">Easy</span> 
+        : props.value == "1" ? <span className="text-amber-400">Medium</span> 
         : <span className="text-red-600">Hard</span> }
         </>
     )

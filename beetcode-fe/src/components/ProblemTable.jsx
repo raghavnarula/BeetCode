@@ -31,19 +31,27 @@ const ProblemTable = () => {
         });
       }, []);
 
+      const getRowStyle = params => {
+        if (params.node.rowIndex % 2 === 0) {
+            return { background: '#404040' };
+        }
+      };
+
     return (
-        <div className="ag-theme-quartz h-[93vh] w-[50%] mx-auto">
-        <AgGridReact
-            rowData={rowData}
-            columnDefs={columnDefs}
-            rowSelection="multiple"
-            suppressRowClickSelection={true}
-            autoSizeStrategy={autoSizeStrategy}
-            pagination={true}
-            paginationPageSize={20}
-            paginationPageSizeSelector={[20, 40, 80]}
-            rowHeight={30}
-        />
+        <div className="ag-theme-quartz h-[70vh] mx-[2%]">
+          <AgGridReact
+              rowData={rowData}
+              columnDefs={columnDefs}
+              enableCellTextSelection={false}
+              suppressRowClickSelection={true}
+              suppressRowHoverHighlight={true}
+              autoSizeStrategy={autoSizeStrategy}
+              pagination={true}
+              getRowStyle={getRowStyle}
+              paginationPageSize={20}
+              paginationPageSizeSelector={[20, 40, 80]}
+              rowHeight={30}
+          />
         </div>
     );
 };

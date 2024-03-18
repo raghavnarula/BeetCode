@@ -10,7 +10,7 @@ const AllTags = (props) => {
     if (props.value !== undefined) {
         tagsArray = props.value.split(',');
     }
-    
+    tagsArray = tagsArray.slice(0,2)
     return (
         <>
             <div className="">

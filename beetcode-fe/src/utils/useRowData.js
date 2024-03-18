@@ -15,8 +15,8 @@ const getRandomString = (options) => {
 
 // Array of possible makes, models, tags, and months
 const statusOptions = ["1", "0","2"];
-const problemOptions = ['alsdkjflkajsdfjasdkfjhalskdhflkjasdhlfkjhaslkdjfhlajkhdsflkjahsdkfjhaldkjhflkajshdflkjhasldjfhlkashdflfjhaslkdfhlashdflkhasdlf', 'F-Series', 'Corolla', 'EQA', '500', 'Juke'];
-const difficultyOptions = ['Easy',"Medium","Hard"];
+const problemOptions = ['110.Combinations', '1.Rows', '2.Hello', 'EQA', '500', 'Juke'];
+const difficultyOptions = ['0',"1","2"];
 const tagsOptions = ['array', 'heap', 'stack', 'linked list', 'queue'];
 
 // Function to generate random data object
